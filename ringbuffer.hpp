@@ -278,6 +278,7 @@ public:
 
 	void clear() { // ~= pop_front(end())
 		head_ =  tail();
+		size_ = 0;
 	}
 
 #ifdef RINGBUFFER_DEBUG
