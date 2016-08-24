@@ -51,7 +51,7 @@ struct ringbuffer_c_array {
 	typedef T buffer_t[N];
 	typedef typename std::allocator<T> allocator_type;
 	typedef size_t size_type;
-	typedef ptrdiff_t difference_type;
+	typedef std::ptrdiff_t difference_type;
 	typedef T value_type;
 	typedef T& reference;
 	typedef const T& const_reference;
@@ -278,6 +278,7 @@ public:
 
 	void clear() { // ~= pop_front(end())
 		head_ =  tail();
+		size_ = 0;
 	}
 
 #ifdef RINGBUFFER_DEBUG
