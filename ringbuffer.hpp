@@ -168,11 +168,11 @@ public:
 		}
 		
 		bool operator==(const ringbuffer_iterator& it) const {
-			return offset_ == it.offset_;
+			return buffer_ == o.buffer_ && buffer_->index(offset_) == it.buffer_->index(it.offset_);
 		}
 		bool operator!=(const ringbuffer_iterator& o) const { return !(*this == o); }
 		bool operator<(const ringbuffer_iterator& o) const {
-			return offset_ < o.offset_;
+			return buffer_->index(offset_) < o.buffer_->index(o.offset_);
 		}
 		bool operator>(const ringbuffer_iterator& o) const { return !(*this < o); }
 
